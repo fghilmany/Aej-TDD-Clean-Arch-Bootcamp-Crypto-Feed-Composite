@@ -11,7 +11,7 @@ import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedLoader
 import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedResult
 import com.hightech.cryptoapp.crypto.feed.http.usecases.Connectivity
 import com.hightech.cryptoapp.crypto.feed.http.usecases.InvalidData
-import com.hightech.cryptoapp.main.factories.RemoteCryptoFeedLoaderFactory
+import com.hightech.cryptoapp.main.factories.CryptoFeedLoaderFactory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
@@ -107,7 +107,10 @@ class CryptoFeedViewModel constructor(
         val FACTORY: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 CryptoFeedViewModel(
-                    RemoteCryptoFeedLoaderFactory.createRemoteCryptoFeedLoader()
+                    CryptoFeedLoaderFactory.createCompositeFactory(
+                        CryptoFeedLoaderFactory.createRemoteCryptoFeedLoader(),
+                        CryptoFeedLoaderFactory.createLocalCryptoFeedLoader()
+                    )
                 )
             }
         }

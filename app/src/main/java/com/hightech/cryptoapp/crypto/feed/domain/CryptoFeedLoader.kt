@@ -1,5 +1,6 @@
 package com.hightech.cryptoapp.crypto.feed.domain
 
+import com.hightech.cryptoapp.crypto.feed.local.LocalRootCryptoFeed
 import kotlinx.coroutines.flow.Flow
 
 sealed class CryptoFeedResult {
@@ -9,4 +10,5 @@ sealed class CryptoFeedResult {
 
 interface CryptoFeedLoader {
     fun load(): Flow<CryptoFeedResult>
+    suspend fun insert(data: LocalRootCryptoFeed)
 }
