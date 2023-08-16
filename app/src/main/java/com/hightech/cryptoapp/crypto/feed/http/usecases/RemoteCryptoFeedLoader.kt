@@ -53,10 +53,6 @@ class RemoteCryptoFeedLoader constructor(
             }
         }
     }
-
-    override suspend fun insert(data: LocalRootCryptoFeed) {
-
-    }
 }
 
 class InvalidData : Throwable()

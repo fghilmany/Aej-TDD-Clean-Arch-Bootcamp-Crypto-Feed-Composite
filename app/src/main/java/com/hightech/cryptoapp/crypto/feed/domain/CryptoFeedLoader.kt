@@ -10,5 +10,4 @@ sealed class CryptoFeedResult {
 
 interface CryptoFeedLoader {
     fun load(): Flow<CryptoFeedResult>
-    suspend fun insert(data: LocalRootCryptoFeed)
 }

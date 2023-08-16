@@ -32,8 +32,4 @@ class LocalCryptoFeedLoader constructor(private val cryptoFeedLocalClient: Crypt
         }
     }
 
-    override suspend fun insert(data: LocalRootCryptoFeed) {
-        cryptoFeedLocalClient.insert(data)
-    }
-
 }

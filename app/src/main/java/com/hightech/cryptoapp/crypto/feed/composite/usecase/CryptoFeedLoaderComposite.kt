@@ -22,8 +22,4 @@ class CryptoFeedLoaderComposite(
             }
         }
     }
-
-    override suspend fun insert(data: LocalRootCryptoFeed) {
-        primary.insert(data)
-    }
 }
