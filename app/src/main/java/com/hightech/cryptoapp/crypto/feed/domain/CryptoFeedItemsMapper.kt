@@ -1,5 +1,6 @@
 package com.hightech.cryptoapp.crypto.feed.domain
 
+import android.util.Log
 import com.hightech.cryptoapp.crypto.feed.http.RemoteCryptoFeedItem
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
@@ -34,23 +35,27 @@ class CryptoFeedItemsMapper {
                 .build()
             val typeData = Types.newParameterizedType(
                 List::class.java,
-                RemoteCryptoFeedItem::class.java
+                CryptoFeedMap::class.java
             )
-            val json: JsonAdapter<List<RemoteCryptoFeedItem>> = moshi.adapter(typeData)
+            Log.e("debug", item)
+
+            val json: JsonAdapter<List<CryptoFeedMap>> = moshi.adapter(typeData)
             val data = json.fromJson(item)
+
+            Log.e("debug", data.toString())
 
             return data?.map {
                 CryptoFeedItem(
                     coinInfo = CoinInfoItem(
-                        it.remoteCoinInfo.id.orEmpty(),
-                        it.remoteCoinInfo.name.orEmpty(),
-                        it.remoteCoinInfo.fullName.orEmpty(),
-                        it.remoteCoinInfo.imageUrl.orEmpty()
+                        it.coinInfo.id.orEmpty(),
+                        it.coinInfo.name.orEmpty(),
+                        it.coinInfo.fullName.orEmpty(),
+                        it.coinInfo.imageUrl.orEmpty()
                     ),
                     raw = RawItem(
                         usd = UsdItem(
-                            it.remoteRaw.usd.price ?: 0.0,
-                            it.remoteRaw.usd.changePctDay ?: 0F
+                            it.raw.usd.price ?: 0.0,
+                            it.raw.usd.changePctDay ?: 0F
                         )
                     )
                 )

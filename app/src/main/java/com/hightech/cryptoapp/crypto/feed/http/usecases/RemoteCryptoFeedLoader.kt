@@ -16,8 +16,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class RemoteCryptoFeedLoader constructor(
-    private val cryptoFeedHttpClient: CryptoFeedHttpClient,
-    private val cryptoFeedLocalClient: CryptoFeedLocalClient,
+    private val cryptoFeedHttpClient: CryptoFeedHttpClient
 ): CryptoFeedLoader {
     override fun load(): Flow<CryptoFeedResult> = flow {
         cryptoFeedHttpClient.get().collect { result ->
@@ -25,12 +24,6 @@ class RemoteCryptoFeedLoader constructor(
                 is HttpClientResult.Success -> {
                     val cryptoFeed = result.root.data
                     if (cryptoFeed.isNotEmpty()) {
-                        val data = CryptoFeedItemsMapper.mapListToJsonString(cryptoFeed)
-                        cryptoFeedLocalClient.insert(
-                            LocalRootCryptoFeed(
-                                data = data
-                            )
-                        )
                         emit(CryptoFeedResult.Success(CryptoFeedItemsMapper.map(cryptoFeed)))
                     } else {
                         emit(CryptoFeedResult.Success(emptyList()))
