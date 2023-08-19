@@ -37,12 +37,9 @@ class CryptoFeedItemsMapper {
                 List::class.java,
                 CryptoFeedMap::class.java
             )
-            Log.e("debug", item)
 
             val json: JsonAdapter<List<CryptoFeedMap>> = moshi.adapter(typeData)
             val data = json.fromJson(item)
-
-            Log.e("debug", data.toString())
 
             return data?.map {
                 CryptoFeedItem(
