@@ -1,15 +1,15 @@
 package com.hightech.cryptoapp.main.factories
 
-import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedLoader
-import com.hightech.cryptoapp.main.decorator.CryptoFeedCache
-import com.hightech.cryptoapp.main.decorator.CryptoFeedCacheDecorator
+import com.example.domain.CryptoFeedLoader
+import com.example.shared.decorator.CryptoFeedCache
+import com.example.shared.decorator.CryptoFeedCacheDecorator
 
 class CryptoFeedDecoratorFactory {
     companion object{
         fun createCryptoFeedDecoratorFactory(
             decorator: CryptoFeedLoader,
             cache: CryptoFeedCache
-        ): CryptoFeedLoader{
+        ): CryptoFeedLoader {
             return CryptoFeedCacheDecorator(decorator, cache)
         }
     }

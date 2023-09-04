@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CryptoFeed"
 include(":app")
+include(":crypto:domain")
+include(":crypto:http")
+include(":crypto:cache")
+include(":crypto:shared")

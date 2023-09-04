@@ -1,7 +1,7 @@
 package com.hightech.cryptoapp.main.factories
 
-import com.hightech.cryptoapp.crypto.feed.local.usecase.LocalCryptoFeedInsert
-import com.hightech.cryptoapp.main.decorator.CryptoFeedCache
+import com.example.cache.usecase.LocalCryptoFeedInsert
+import com.example.shared.decorator.CryptoFeedCache
 
 class CryptoFeedLocalInsertFactory {
     companion object {

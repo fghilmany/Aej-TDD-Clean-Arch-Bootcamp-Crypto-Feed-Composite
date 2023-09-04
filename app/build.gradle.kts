@@ -48,6 +48,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":crypto:domain"))
+    implementation(project(":crypto:http"))
+    implementation(project(":crypto:cache"))
+    implementation(project(":crypto:shared"))
+
     implementation(libs.androidx.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)

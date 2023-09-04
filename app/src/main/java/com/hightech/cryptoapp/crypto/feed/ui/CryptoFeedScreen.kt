@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedItem
+import com.example.domain.CryptoFeedItem
 import com.hightech.cryptoapp.crypto.feed.presentation.CryptoFeedUiState
 import com.hightech.cryptoapp.crypto.feed.presentation.CryptoFeedViewModel
 import com.hightech.cryptoapp.crypto.feed.ui.components.CryptoFeedList

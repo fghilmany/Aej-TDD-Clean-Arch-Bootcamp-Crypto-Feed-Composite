@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedItem
-import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedLoader
-import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedResult
-import com.hightech.cryptoapp.crypto.feed.http.usecases.Connectivity
-import com.hightech.cryptoapp.crypto.feed.http.usecases.InvalidData
+import com.example.domain.CryptoFeedItem
+import com.example.domain.CryptoFeedLoader
+import com.example.domain.CryptoFeedResult
+import com.example.http.usecases.Connectivity
+import com.example.http.usecases.InvalidData
 import com.hightech.cryptoapp.main.factories.CryptoFeedCompositeFactory
 import com.hightech.cryptoapp.main.factories.CryptoFeedDecoratorFactory
 import com.hightech.cryptoapp.main.factories.CryptoFeedLocalInsertFactory

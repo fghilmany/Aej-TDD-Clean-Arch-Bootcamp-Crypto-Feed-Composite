@@ -1,7 +1,8 @@
 package com.hightech.cryptoapp.main.factories
 
-import com.hightech.cryptoapp.crypto.feed.domain.CryptoFeedLoader
-import com.hightech.cryptoapp.crypto.feed.local.usecase.LocalCryptoFeedLoader
+import com.example.shared.composite.CryptoFeedLoaderComposite
+import com.example.cache.usecase.LocalCryptoFeedLoader
+import com.example.domain.CryptoFeedLoader
 
 class CryptoFeedLocalLoaderFactory {
     companion object {

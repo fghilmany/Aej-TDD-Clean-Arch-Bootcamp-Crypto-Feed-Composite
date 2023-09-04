@@ -1,0 +1,23 @@
+package com.example.shared.composite
+
+import com.example.domain.CryptoFeedLoader
+import com.example.domain.CryptoFeedResult
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+
+class CryptoFeedLoaderComposite(
+    private val primary: CryptoFeedLoader,
+    private val fallback: CryptoFeedLoader,
+): CryptoFeedLoader {
+    override fun load(): Flow<CryptoFeedResult> {
+        return flow {
+            primary.load().collect{
+                when(it) {
+                    is CryptoFeedResult.Success -> emit(it)
+                    is CryptoFeedResult.Failure -> emit(fallback.load().first())
+                }
+            }
+        }
+    }
+}
